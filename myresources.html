@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Resources</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-color: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .resource-upload {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .resource-upload input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid var(--accent-color);
+        }
+
+        .btn-upload {
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            color: var(--text-color);
+        }
+
+        .btn-upload:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .resources-list {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .resources-list h2 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+
+        .resource-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+
+        .resource-name {
+            font-size: 1.2em;
+            flex: 1;
+        }
+
+        .btn-delete {
+            padding: 8px 16px;
+            background-color: #e11d48;
+            color: var(--text-color);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background-color: #be123c;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            .resource-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .btn-delete {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Resources</h1>
+
+        <div class="resource-upload">
+            <h2>Upload New Resource</h2>
+            <input type="file" id="resourceUpload">
+            <button class="btn-upload" onclick="uploadResource()">Upload Resource</button>
+        </div>
+
+        <div class="resources-list">
+            <h2>Your Uploaded Resources</h2>
+
+            <div class="resource-item">
+                <div class="resource-name">Data Structures Lecture Notes.pdf</div>
+                <button class="btn-delete" onclick="deleteResource(this)">Delete</button>
+            </div>
+
+            <div class="resource-item">
+                <div class="resource-name">Machine Learning Workshop.pptx</div>
+                <button class="btn-delete" onclick="deleteResource(this)">Delete</button>
+            </div>
+
+            <div class="resource-item">
+                <div class="resource-name">Advanced Algorithms Textbook.docx</div>
+                <button class="btn-delete" onclick="deleteResource(this)">Delete</button>
+            </div>
+        </div>
+
+        <div class="back-link" onclick="goBack()"><a href="in.html" >to Dashboard</a></div>
+    </div>
+
+    <script>
+        function uploadResource() {
+            const fileInput = document.getElementById('resourceUpload');
+            const fileName = fileInput.value.split('\\').pop();
+            if (fileName) {
+                alert('Resource "' + fileName + '" uploaded successfully!');
+                fileInput.value = ''; 
+            } else {
+                alert('Please select a file to upload.');
+            }
+        }
+
+        function deleteResource(button) {
+            const resourceName = button.parentElement.querySelector('.resource-name').innerText;
+            if (confirm('Are you sure you want to delete "' + resourceName + '"?')) {
+                button.parentElement.remove(); 
+            }
+        }
+
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

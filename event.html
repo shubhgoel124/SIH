@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Events</title>
+    <style>
+        :root {
+            --primary-color: #1e3a8a;
+            --secondary-color: #3b82f6;
+            --accent-color: #60a5fa;
+            --text-color: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .event {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .event img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .event-details {
+            flex: 1;
+        }
+
+        .event-title {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .event-date, .event-location {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .event-description {
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+
+        .btn-register {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: var(--accent-color);
+            color: var(--text-color);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-register:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-color);
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            .event {
+                flex-direction: column;
+            }
+
+            .event img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .event-title {
+                font-size: 1.6em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upcoming Faculty Events</h1>
+
+        
+        <div class="event">
+            <img src="https://via.placeholder.com/300x200" alt="Event Image">
+            <div class="event-details">
+                <div class="event-title">Faculty Development Workshop</div>
+                <div class="event-date">Date: September 25, 2024</div>
+                <div class="event-location">Location: Auditorium, IIIT Nagpur</div>
+                <div class="event-description">
+                    Join us for a one-day workshop focused on enhancing faculty skills in modern teaching methodologies and tools. 
+                    Learn from industry experts and network with colleagues to improve your educational delivery.
+                </div>
+                <button class="btn-register">Register Now</button>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://via.placeholder.com/300x200" alt="Event Image">
+            <div class="event-details">
+                <div class="event-title">Research Seminar on AI & Machine Learning</div>
+                <div class="event-date">Date: October 5, 2024</div>
+                <div class="event-location">Location: Seminar Hall, IIIT Nagpur</div>
+                <div class="event-description">
+                    Attend this seminar to explore cutting-edge research on AI and machine learning applications in diverse fields. 
+                    Presentations will be given by prominent researchers from top institutions.
+                </div>
+                <button class="btn-register">Register Now</button>
+            </div>
+        </div>
+
+        <div class="event">
+            <img src="https://via.placeholder.com/300x200" alt="Event Image">
+            <div class="event-details">
+                <div class="event-title">Hackathon Preparation Session</div>
+                <div class="event-date">Date: October 15, 2024</div>
+                <div class="event-location">Location: Computer Lab, IIIT Nagpur</div>
+                <div class="event-description">
+                    Prepare yourself for the upcoming hackathon with this session that covers essential skills and strategies 
+                    to help you succeed. Get hands-on with coding challenges and teamwork exercises.
+                </div>
+                <button class="btn-register">Register Now</button>
+            </div>
+        </div>
+
+        <div class="back-link" onclick="goBack()">Back to Dashboard</div>
+    </div>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
